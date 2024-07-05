@@ -9,6 +9,12 @@ import peopleRouter from './Routers/peopleRouter.js'; // Enrutador para las ruta
 import tvRouter from './Routers/tvRouter.js'; // Enrutador para las rutas relacionadas con series de televisión
 import trendingRouter from './Routers/trendingRouter.js'; // Enrutador para las rutas relacionadas con contenido trending
 
+//importa el index de la API
+import index from './index.js';
+
+// Middleware para servir archivos estáticos desde la carpeta 'public'
+app.use(express.static('public'));
+
 // Carga las variables de entorno desde un archivo .env si existe
 dotenv.config();
 
@@ -22,10 +28,11 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 // Middleware para enrutar las solicitudes a los enrutadores específicos según la ruta base
-app.use('/api/movies', moviesRouter); // Rutas relacionadas con películas
-app.use('/api/people', peopleRouter); // Rutas relacionadas con personas
-app.use('/api/tv', tvRouter); // Rutas relacionadas con series de televisión
-app.use('/api/trending', trendingRouter); // Rutas relacionadas con contenido trending
+app.use('/api', moviesRouter); // Rutas relacionadas con películas
+app.use('/api', peopleRouter); // Rutas relacionadas con personas
+app.use('/api', tvRouter); // Rutas relacionadas con series de televisión
+app.use('/api', trendingRouter); // Rutas relacionadas con contenido trending
+app.use('/', index); // Ruta para el index de la API
 
 // Inicia el servidor y escucha en el puerto especificado
 app.listen(port, () => {

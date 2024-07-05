@@ -3,7 +3,7 @@ import { getTvById, listTv } from '../controllers/tvController.js';
 
 const router = express.Router();
 
-router.get('/:id', getTvById);  // Ruta para obtener serie por ID
-router.get('/', listTv); // Ruta para obtener lista de series
+router.get('/tv/:id', getTvById);  // Ruta para obtener serie por ID
+router.get('/tv/', listTv); // Ruta para obtener lista de series
 
 export default router;
