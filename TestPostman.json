@@ -2,7 +2,6 @@
 	"info": {
 		"name": "TMDB API Tests",
 		"description": "Tests for TMDB API endpoints: Movies, TV Shows, People, Trending",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
