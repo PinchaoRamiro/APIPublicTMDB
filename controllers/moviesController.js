@@ -26,11 +26,7 @@ export const getMovieById = async (req, res) => {
     })
   }
   catch(error){
-    res.status(500).send("Internal server error");
-    res.status(400).send("Bad request");
-    res.status(404).send("Not found");
-    res.status(401).send("Unauthorized");
-    res.status(403).send("Forbidden");
+    handleError(error, res);
   }
 
 };
