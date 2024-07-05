@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "TMDB API Tests",
-		"description": "Tests for TMDB API endpoints: Movies, TV Shows, People, Trending",
+		"description": "Tests for TMDB API endpoints: Movies, TV Shows, People, Trending"
 	},
 	"item": [
 		{
