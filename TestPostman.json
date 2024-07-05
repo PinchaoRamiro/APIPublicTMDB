@@ -1,0 +1,252 @@
+{
+	"info": {
+		"name": "TMDB API Tests",
+		"description": "Tests for TMDB API endpoints: Movies, TV Shows, People, Trending",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Movies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 for List Movies\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body should be an object\", function () {",
+							"    pm.expect(pm.response.json()).to.be.an(\"object\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local_url}}/api/movies?page=1&language=en-US",
+					"host": ["{{local_url}}"],
+					"path": ["api", "movies"],
+					"query": [
+						{ "key": "page", "value": "1" },
+						{ "key": "language", "value": "en-US" }
+					]
+				},
+				"description": "Lists movies with pagination and filtering options."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 for Get Movie Details\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body should have movie details\", function () {",
+							"    pm.expect(pm.response.json()).to.have.property(\"title\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{local_url}}/api/movies/123456",
+				"description": "Gets details of a specific movie by ID."
+			},
+			"response": []
+		},
+		{
+			"name": "List TV Shows",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 for List TV Shows\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body should be an object\", function () {",
+							"    pm.expect(pm.response.json()).to.be.an(\"object\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local_url}}/api/tv?page=1&language=en-US",
+					"host": ["{{local_url}}"],
+					"path": ["api", "tv"],
+					"query": [
+						{ "key": "page", "value": "1" },
+						{ "key": "language", "value": "en-US" }
+					]
+				},
+				"description": "Lists TV shows with pagination and filtering options."
+			},
+			"response": []
+		},
+		{
+			"name": "Get TV Show Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 for Get TV Show Details\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body should have TV show details\", function () {",
+							"    pm.expect(pm.response.json()).to.have.property(\"name\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{local_url}}/api/tv/789012",
+				"description": "Gets details of a specific TV show by ID."
+			},
+			"response": []
+		},
+		{
+			"name": "Search People",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 for Search People\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body should be an object\", function () {",
+							"    pm.expect(pm.response.json()).to.be.an(\"object\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local_url}}/api/people?query=John&page=1&language=en-US",
+					"host": ["{{local_url}}"],
+					"path": ["api", "people"],
+					"query": [
+						{ "key": "query", "value": "John" },
+						{ "key": "page", "value": "1" },
+						{ "key": "language", "value": "en-US" }
+					]
+				},
+				"description": "Searches for people (actors, directors, etc.) with pagination and filtering options."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Person Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 for Get Person Details\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body should have person details\", function () {",
+							"    pm.expect(pm.response.json()).to.have.property(\"name\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{local_url}}/api/people/456789",
+				"description": "Gets details of a specific person by ID."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Trending Content",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200 for Get Trending Content\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body should be an object\", function () {",
+							"    pm.expect(pm.response.json()).to.be.an(\"object\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local_url}}/api/trending/movie?time_window=day",
+					"host": ["{{local_url}}"],
+					"path": ["api", "trending", "movie"],
+					"query": [
+						{ "key": "time_window", "value": "day" }
+					]
+				},
+				"description": "Gets trending content for movies within a specified time window."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": ["// Add any pre-request scripts if needed"]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": ["// Add any global test scripts if needed"]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local_url",
+			"value": "http://localhost:3000"
+		}
+	]
+}
