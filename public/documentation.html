@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: auto;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>API de Contenido Trending</h1>
+  <p>Esta API permite obtener información sobre películas, series de televisión y personas desde la base de datos de The Movie Database (TMDb).</p>
+  
+  <h2>Endpoints y Parámetros</h2>
+  
+  <h3>1.1. Listar Películas</h3>
+  <p><strong>Método HTTP:</strong> GET</p>
+  <p><strong>Ruta del Endpoint:</strong> <code>/api/movies</code></p>
+  <p><strong>Descripción:</strong> Lista películas con opciones de paginación y filtrado por región, idioma, género y términos de búsqueda.</p>
+  <p><strong>Parámetros:</strong></p>
+  <ul>
+    <li><strong>Query Parameters:</strong></li>
+    <ul>
+      <li><code>page</code> (int) - Número de página para la paginación. Por defecto, <code>1</code>.</li>
+      <li><code>region</code> (string) - Código de región para filtrar películas por ubicación geográfica.</li>
+      <li><code>language</code> (string) - Código de idioma (ISO 639-1). Por defecto, <code>en-US</code>.</li>
+      <li><code>query</code> (string) - Término de búsqueda para filtrar películas por título o descripción.</li>
+      <li><code>genre</code> (string) - Identificador de género para filtrar películas por género.</li>
+    </ul>
+  </ul>
+  
+  <h3>1.2. Obtener Detalles de una Película</h3>
+  <p><strong>Método HTTP:</strong> GET</p>
+  <p><strong>Ruta del Endpoint:</strong> <code>/api/movies/:id</code></p>
+  <p><strong>Descripción:</strong> Obtiene los detalles completos de una película específica.</p>
+  <p><strong>Parámetros:</strong></p>
+  <ul>
+    <li><strong>Path Parameter:</strong></li>
+    <ul>
+      <li><code>:id</code> (string) - El identificador de la película en la base de datos de TMDb.</li>
+    </ul>
+  </ul>
+
+  <h3>1.3. Listar TV Shows</h3>
+  <p><strong>Método HTTP:</strong> GET</p>
+  <p><strong>Ruta del Endpoint:</strong> <code>/api/tv</code></p>
+  <p><strong>Descripción:</strong> Lista series de televisión (TV shows) con opciones de paginación y filtrado por región, idioma, género y términos de búsqueda.</p>
+  <p><strong>Parámetros:</strong></p>
+  <ul>
+    <li><strong>Query Parameters:</strong></li>
+    <ul>
+      <li><code>page</code> (int) - Número de página para la paginación. Por defecto, <code>1</code>.</li>
+      <li><code>region</code> (string) - Código de región para filtrar TV shows por ubicación geográfica.</li>
+      <li><code>language</code> (string) - Código de idioma (ISO 639-1). Por defecto, <code>en-US</code>.</li>
+      <li><code>query</code> (string) - Término de búsqueda para filtrar TV shows por título o descripción.</li>
+      <li><code>genre</code> (string) - Identificador de género para filtrar TV shows por género.</li>
+    </ul>
+  </ul>
+
+  <h3>1.4. Obtener Detalles de un TV Show</h3>
+  <p><strong>Método HTTP:</strong> GET</p>
+  <p><strong>Ruta del Endpoint:</strong> <code>/api/tv/:id</code></p>
+  <p><strong>Descripción:</strong> Obtiene los detalles completos de un TV show específico.</p>
+  <p><strong>Parámetros:</strong></p>
+  <ul>
+    <li><strong>Path Parameter:</strong></li>
+    <ul>
+      <li><code>:id</code> (string) - El identificador del TV show en la base de datos de TMDb.</li>
+    </ul>
+  </ul>
+
+  <h3>1.5. Buscar Personas (People)</h3>
+  <p><strong>Método HTTP:</strong> GET</p>
+  <p><strong>Ruta del Endpoint:</strong> <code>/api/people</code></p>
+  <p><strong>Descripción:</strong> Busca personas (actores, directores, etc.) en la base de datos de TMDb.</p>
+  <p><strong>Parámetros:</strong></p>
+  <ul>
+    <li><strong>Query Parameters:</strong></li>
+    <ul>
+      <li><code>language</code> (string) - Código de idioma (ISO 639-1). Por defecto, <code>en-US</code>.</li>
+      <li><code>include_adult</code> (boolean) - Incluir contenido para adultos en los resultados. Por defecto, <code>false</code>.</li>
+      <li><code>page</code> (int) - Número de página para la paginación. Por defecto, <code>1</code>.</li>
+      <li><code>query</code> (string) - Término de búsqueda para filtrar personas por nombre.</li>
+    </ul>
+  </ul>
+
+  <h3>1.6. Obtener Detalles de una Persona</h3>
+  <p><strong>Método HTTP:</strong> GET</p>
+  <p><strong>Ruta del Endpoint:</strong> <code>/api/people/:id</code></p>
+  <p><strong>Descripción:</strong> Obtiene los detalles completos de una persona específica.</p>
+  <p><strong>Parámetros:</strong></p>
+  <ul>
+    <li><strong>Path Parameter:</strong></li>
+    <ul>
+      <li><code>:id</code> (string) - El identificador de la persona en la base de datos de TMDb.</li>
+    </ul>
+  </ul>
+
+  <h3>1.7. Obtener Contenido Trending</h3>
+  <p><strong>Método HTTP:</strong> GET</p>
+  <p><strong>Ruta del Endpoint:</strong> <code>/api/trending/:type</code></p>
+  <p><strong>Descripción:</strong> Obtiene contenido trending para películas, TV shows o personas.</p>
+  <p><strong>Parámetros:</strong></p>
+  <ul>
+    <li><strong>Path Parameter:</strong></li>
+    <ul>
+      <li><code>:type</code> (string) - Tipo de contenido trending que se desea obtener. Valores posibles: <code>movie</code>, <code>tv</code>, <code>person</code>.</li>
+    </ul>
+    <li><strong>Query Parameters:</strong></li>
+    <ul>
+      <li><code>time_window</code> (string, required) - Período de tiempo para el contenido trending. Valores posibles: <code>day</code>, <code>week</code>. Por defecto, <code>day</code>.</li>
+    </ul>
+  </ul>
+
+  <h2>Especificaciones de Seguridad</h2>
+  
+  <h2>Manejo de Errores</h2>
+
+  <h3>Respuestas de Error:</h3>
+  <ul>
+    <li>Proponer respuestas detalladas y consistentes para los errores, evitando exponer información sensible.</li>
+    <li>Utilizar los siguientes códigos de estado HTTP para indicar la naturaleza del error:</li>
+    <ul>
+      <li><strong>400 Bad Request:</strong> Cuando la solicitud del cliente es inválida, por ejemplo, parámetros faltantes o incorrectos.</li>
+      <li><strong>404 Not Found:</strong> Cuando el recurso solicitado no se encuentra en el servidor.</li>
+      <li><strong>500 Internal Server Error:</strong> Para errores internos del servidor, como fallas en la base de datos o errores en la lógica de la aplicación.</li>
+    </ul>
+  </ul>
+  
+  <h3>Registro de Errores:</h3>
+  <ul>
+    <li>Registrar todos los errores y excepciones para facilitar la auditoría y el monitoreo de la API.</li>
+  </ul>
+  
+  
+  <h2>Cómo usar la API</h2>
+  
+  <h3>Requisitos Previos</h3>
+  <ul>
+    <li>Node.js</li>
+    <li>npm</li>
+  </ul>
+  
+  <h3>Instalación</h3>
+  <pre><code>
+git clone https://github.com/tu-usuario/tu-repositorio.git
+cd tu-repositorio
+npm install
+  </code></pre>
+  <p>Crea un archivo <code>.env</code> en el directorio raíz del proyecto y añade tu token de TMDb:</p>
+  <pre><code>
+TMDB_API_TOKEN=your_tmdb_api_token_here
+  </code></pre>
+  <p>Inicia el servidor:</p>
+  <pre><code>
+npm start
+  </code></pre>
+  
+  <h3>Uso de la API</h3>
+  <p>Para interactuar con la API, puedes usar herramientas como <code>curl</code>, <code>Postman</code>, o simplemente un navegador web. Aquí hay algunos ejemplos:</p>
+  <pre><code>
+# Listar películas:
+curl -X GET "http://localhost:3000/api/movies?page=1&language=en-US&query=Inception"
+
+# Obtener detalles de una película:
+curl -X GET "http://localhost:3000/api/movies/550"
+
+# Listar TV shows:
+curl -X GET "http://localhost:3000/api/tv?page=1&language=en-US&query=Friends"
+
+# Obtener detalles de un TV show:
+curl -X GET "http://localhost:3000/api/tv/1399"
+
+# Buscar personas:
+curl -X GET "http://localhost:3000/api/people?query=Brad%20Pitt"
+
+# Obtener detalles de una persona:
+curl -X GET "http://localhost:3000/api/people/287"
+
+# Obtener contenido trending:
+curl -X GET "http://localhost:3000/api/trending/movie?time_window=day"
+  </code></pre>
+</body>
+</html>
